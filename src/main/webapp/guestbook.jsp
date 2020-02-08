@@ -30,7 +30,7 @@
 
   <head>
 	<link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
-	TEST
+	TESTing 2
   </head>
 
  
