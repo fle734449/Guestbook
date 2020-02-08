@@ -29,8 +29,10 @@
 <html>
 
   <head>
-	<link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
-	TESTing 2
+  	<link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+	  		<img id = "logo-pic" src="ThoughtBubble.png">
+	  		<h1 id = "logo-text">ThoughtBubbles</h1>
+	  		<h3 id = "slogan">- Share your thoughts here</h3>
   </head>
 
  
