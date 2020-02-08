@@ -30,9 +30,11 @@
 
   <head>
   	<link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+	
 	  		<img id = "logo-pic" src="ThoughtBubble.png">
 	  		<h1 id = "logo-text">ThoughtBubbles</h1>
 	  		<h3 id = "slogan">- Share your thoughts here</h3>
+
   </head>
 
  
@@ -161,8 +163,7 @@ to include your name with greetings you post.</p>
  
 
     <form action="/sign" method="post">
-
-      <div><textarea name="content" rows="3" cols="60"></textarea></div>
+    <div><textarea name="content" id = "textbox" rows="3" cols="60" ></textarea></div>
 
       <div><input type="submit" value="Post Greeting" /></div>
 
@@ -170,7 +171,11 @@ to include your name with greetings you post.</p>
 
     </form>
 
+ <script type="text/javascript"> 
  
+ 	//document.getElementById("textbox").style.display = "none";
+ 
+</script>
 
   </body>
 
