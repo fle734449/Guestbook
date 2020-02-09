@@ -62,6 +62,7 @@
     if (user != null) {
 
       pageContext.setAttribute("user", user);
+      
 
 %>
 
@@ -74,6 +75,7 @@
     } else {
 
 %>
+
 
 <p>Hello!
 
@@ -162,7 +164,7 @@ to include your name with greetings you post.</p>
 
  
 
-    <form action="/sign" method="post">
+    <form action="/sign" method="post" id="textbox">
     <div><textarea name="content" id = "textbox" rows="3" cols="60" ></textarea></div>
 
       <div><input type="submit" value="Post Greeting" /></div>
@@ -171,11 +173,24 @@ to include your name with greetings you post.</p>
 
     </form>
 
- <script type="text/javascript"> 
- 
- 	//document.getElementById("textbox").style.display = "none";
- 
-</script>
+<%
+    if (user == null) {
+
+%>
+	<script type="text/javascript"> 
+ 		document.getElementById("textbox").style.display = "none";
+	</script>
+<% } else { %> 
+	<script type="text/javascript"> 
+ 		document.getElementById("textbox").style.display = "block";
+	</script>
+<% 
+
+	} 
+%>		
+
+
+
 
   </body>
 
