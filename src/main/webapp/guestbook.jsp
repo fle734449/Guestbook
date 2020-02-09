@@ -27,171 +27,116 @@
   
 
 <html>
+<link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
 
   <head>
-  	<link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
-	
-	  		<img id = "logo-pic" src="ThoughtBubble.png">
-	  		<h1 id = "logo-text">ThoughtBubbles</h1>
-	  		<h3 id = "slogan">- Share your thoughts here</h3>
-
+ 
   </head>
-
- 
-
+  
+  
   <body>
+ 	<div class = "blog-bar">
+		<h1 id = "logo-text">ThoughtBubbles</h1>
+		<p id = "slogan">Share your thoughts here!</p>
+		
+		<div class = "user-function">
+			<%
+			    String guestbookName = request.getParameter("guestbookName");
+			
+			    if (guestbookName == null) {
+			        guestbookName = "default";
+			    }
+			
+			    pageContext.setAttribute("guestbookName", guestbookName);
+			    UserService userService = UserServiceFactory.getUserService();
+			    User user = userService.getCurrentUser();
+			
+			    if (user != null) {
+			      pageContext.setAttribute("user", user);
+			
+			%>
+			
+			<p>Hello, ${fn:escapeXml(user.nickname)}! (You can
+			<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">sign out</a>.)</p>
+			
+			<%
+			    } else {
+			%>
+			
+			
+			<p>
+				<a href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
+			</p>
+			
+			<%
+			    }
+			%>
+		</div>
+		
+	</div>
+
+	
+
+		<%
+		    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+		    Key guestbookKey = KeyFactory.createKey("Guestbook", guestbookName);
+		
+		    // Run an ancestor query to ensure we see the most up-to-date
+		
+		    // view of the Greetings belonging to the selected Guestbook.
+		
+			Query query = new Query("Greeting", guestbookKey).addSort("date", Query.SortDirection.DESCENDING);
+		    List<Entity> greetings = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(5));
+		
+		    if (greetings.isEmpty()) {
+		        %>
+		        <p>Guestbook '${fn:escapeXml(guestbookName)}' has no messages.</p>
+		        <%
+		
+		    } else {
+		    	
+		        %>
+		        <p>Messages in Guestbook '${fn:escapeXml(guestbookName)}'.</p>
+		        <%
+		
+		        for (Entity greeting : greetings) {
+		            pageContext.setAttribute("greeting_content", greeting.getProperty("content"));      
+	                pageContext.setAttribute("greeting_user", greeting.getProperty("user"));
+	                
+	                %>
+	                <div class = "recent-posts">
+		                <p><b>${fn:escapeXml(greeting_user.nickname)}</b> wrote:</p>
+			            <blockquote>${fn:escapeXml(greeting_content)}</blockquote>
+		            </div>
+		            <%
+		            
+		        }
+		    }
+		%> 
+			<div class = "submit-posts">
+		    	<form action="/sign" method="post" id="textbox">
+				    <div><textarea name="content" id = "textbox" rows="3" cols="60" ></textarea></div>
+				      <div><input type="submit" value="Post Greeting" /></div>
+				      <input type="hidden" name="guestbookName" value="${fn:escapeXml(guestbookName)}"/>
+			    </form>
+		    </div>
+		<%
+		    if (user == null) {
+		
+		%>
+			<script type="text/javascript"> 
+		 		document.getElementById("textbox").style.display = "none";
+			</script>
+		<% } else { %> 
+			<script type="text/javascript"> 
+		 		document.getElementById("textbox").style.display = "block";
+			</script>
+		<% 
+			} 
+		%>		
+
+	
 
- 
-
-<%
-
-    String guestbookName = request.getParameter("guestbookName");
-
-    if (guestbookName == null) {
-
-        guestbookName = "default";
-
-    }
-
-    pageContext.setAttribute("guestbookName", guestbookName);
-
-    UserService userService = UserServiceFactory.getUserService();
-
-    User user = userService.getCurrentUser();
-
-    if (user != null) {
-
-      pageContext.setAttribute("user", user);
-      
-
-%>
-
-<p>Hello, ${fn:escapeXml(user.nickname)}! (You can
-
-<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">sign out</a>.)</p>
-
-<%
-
-    } else {
-
-%>
-
-
-<p>Hello!
-
-<a href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
-
-to include your name with greetings you post.</p>
-
-<%
-
-    }
-
-%>
-
- 
-
-<%
-
-    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-
-    Key guestbookKey = KeyFactory.createKey("Guestbook", guestbookName);
-
-    // Run an ancestor query to ensure we see the most up-to-date
-
-    // view of the Greetings belonging to the selected Guestbook.
-
-    Query query = new Query("Greeting", guestbookKey).addSort("user", 
-    		Query.SortDirection.DESCENDING).addSort("date", Query.SortDirection.DESCENDING);
-
-    List<Entity> greetings = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(5));
-
-    if (greetings.isEmpty()) {
-
-        %>
-
-        <p>Guestbook '${fn:escapeXml(guestbookName)}' has no messages.</p>
-
-        <%
-
-    } else {
-
-        %>
-
-        <p>Messages in Guestbook '${fn:escapeXml(guestbookName)}'.</p>
-
-        <%
-
-        for (Entity greeting : greetings) {
-
-            pageContext.setAttribute("greeting_content",
-
-                                     greeting.getProperty("content"));
-
-            if (greeting.getProperty("user") == null) {
-
-                %>
-
-                <p>An anonymous person wrote:</p>
-
-                <%
-
-            } else {
-
-                pageContext.setAttribute("greeting_user",
-
-                                         greeting.getProperty("user"));
-
-                %>
-
-                <p><b>${fn:escapeXml(greeting_user.nickname)}</b> wrote:</p>
-
-                <%
-
-            }
-
-            %>
-
-            <blockquote>${fn:escapeXml(greeting_content)}</blockquote>
-
-            <%
-
-        }
-
-    }
-
-%>
-
- 
-
-    <form action="/sign" method="post" id="textbox">
-    <div><textarea name="content" id = "textbox" rows="3" cols="60" ></textarea></div>
-
-      <div><input type="submit" value="Post Greeting" /></div>
-
-      <input type="hidden" name="guestbookName" value="${fn:escapeXml(guestbookName)}"/>
-
-    </form>
-
-<%
-    if (user == null) {
-
-%>
-	<script type="text/javascript"> 
- 		document.getElementById("textbox").style.display = "none";
-	</script>
-<% } else { %> 
-	<script type="text/javascript"> 
- 		document.getElementById("textbox").style.display = "block";
-	</script>
-<% 
-
-	} 
-%>		
-
-
-
-
+	
   </body>
-
 </html>
