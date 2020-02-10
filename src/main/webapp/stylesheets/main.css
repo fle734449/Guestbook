@@ -28,13 +28,24 @@ textarea{
 }
 
 .recent-posts {
+	z-index: 0;
 	position: relative; 
 	top: 50px;
   	padding: 10px;
   	margin: 10px;
 }
 
+.all-posts {
+	position: relative; 
+	top: 50px;
+}
 .submit-posts {
+	position: relative; 
+	top: 50px;
+}
+
+.return-home {
+	z-index: 5;
 	position: relative; 
 	top: 50px;
 }
