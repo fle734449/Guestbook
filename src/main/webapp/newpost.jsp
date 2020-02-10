@@ -76,8 +76,8 @@
 	</div>
 			<div class = "submit-posts">
 		    	<form action="/sign" method="post" id="textbox">
-		    		<div><textarea name="title" rows="1" cols="60" ></textarea></div>
-				    <div><textarea name="content" rows="3" cols="60" ></textarea></div>
+		    		<div><textarea id = "title-textarea"name="title" rows="1" cols="50" ></textarea></div>
+				    <div><textarea id = "content-textarea" name="content" rows="3" cols="100" ></textarea></div>
 				      <div><input type="submit" value="Post Greeting" /></div>
 				      <input type="hidden" name="guestbookName" value="${fn:escapeXml(guestbookName)}"/>
 			    </form>

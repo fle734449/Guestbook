@@ -4,8 +4,17 @@
 }
 
 body {
+	font-family: Raleway;
    background-color: #9fa2b2;
    color: white;
+}
+
+b {
+	color: #16262e;
+}
+
+textarea{
+	font-family: Raleway;
 }
 
 .blog-bar {
