@@ -3,8 +3,18 @@
   src: url(Raleway-Medium.ttf);
 }
 
+@font-face {
+  font-family: Raleway-Extra-Itali;
+  src: url(Raleway-ExtraBoldItalic.ttf);
+}
+
+@font-face {
+  font-family: Raleway-Black;
+  src: url(Raleway-Black.ttf);
+}
+
 body {
-	font-family: Raleway;
+   font-family: Raleway;
    background-color: #9fa2b2;
    color: white;
 }
@@ -14,40 +24,106 @@ b {
 }
 
 textarea{
-	font-family: Raleway;
+	padding: 10px;
+	border: 5px;
+	overflow: auto;
+	background-color: #3c7a89;
+	border-radius: 6px;
+ }
+ 
+ #title-textarea{
+ 	font-family: Raleway-Extra-Itali;
+ 	margin: auto;
+ }
+ 
+ #content-textarea{
+ 	font-family: Raleway;
+ 	margin: 10 auto;
+ 	color: white;
+ }
+ 
+ #post-text{
+    font-family: Raleway;
+    color: white;
+ 	width: 800px;
+ 	height: 80px;
+ }
+ 
+ .button {
+ 	background-color: #3c7a89;
+ 	font-family: Raleway-Black;
+ 	color: #16262e;
+ 	border: none;
+ 	text-align: center;
+ 	display: inline-block;
+ 	font-size: 20px;
+ 	padding: 15px;
+ 	border-radius: 6px;
+ }
+ 
+ .button:hover {
+ 	background-color: #16262e;
+ 	color: white;
+ 
  }
 
-
+.post-title{
+	font-family: Raleway-Extra-Itali;
+	font-size: 18px;
+}
 
 .blog-bar {
-	background-color: #2e4756;
+	z-index: 3;
+	background-color: #16262e;
 	overflow: hidden;
 	position: fixed;
 	top: 0;
-	width: 100%;
+	left: -10px;
+	width: 105%;
 }
 
 .recent-posts {
 	z-index: 0;
 	position: relative; 
-	top: 50px;
-  	padding: 10px;
-  	margin: 10px;
+	top: 65px;
+  	padding: 15px;
+  	margin: 20 auto;
+  	border-radius: 10px;
+  	width: 800px;
+  	height: 200px;
+  	background-color: #3c7a89;
 }
 
 .all-posts {
+	z-index: 5;
 	position: relative; 
 	top: 50px;
+	margin: 20 auto;
+	padding-bottom: 10px;
 }
-.submit-posts {
+
+.new-post{
+	z-index: 5;
 	position: relative; 
-	top: 50px;
+	top: -40px;
+	margin: 10 auto;
+	padding-bottom: 10px;
+}
+
+.submit-posts {
+	z-index: 5;
+	position: relative; 
+	top: 100px;
+	margin: 10 auto;
+	padding-bottom: 10px;
 }
 
 .return-home {
 	z-index: 5;
 	position: relative; 
 	top: 50px;
+	margin: 50 auto;
+	padding-bottom: 10px;
 }
 
 #logo-image {
@@ -62,12 +138,13 @@ textarea{
 }
 
 #logo-text {
-	font-family: Raleway;
+	font-family: Raleway-Black;
 	display:block;
 	float:left;
-	font-size: 16px;
+	font-size: 20px;
 	text-align: center;
 	padding: 10px;
+	padding-top: 11px;
 	padding-left: 5px;
 
 }
@@ -75,5 +152,6 @@ textarea{
 .user-function {
 	font-family: Raleway;
 	float: right; 
-	padding-right: 50px;
+	padding-top: 12px;
+	padding-right: 80px;
 }

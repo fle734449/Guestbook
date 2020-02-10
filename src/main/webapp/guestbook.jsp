@@ -37,7 +37,7 @@
   <body>
  	<div class = "blog-bar">
  		<img src="ThoughtBubble.png" id = "logo-image" >
-		<h1 id = "logo-text">ThoughtBubbles - Come share your thoughts here!</h1>
+		<h1 id = "logo-text"> ThoughtBubbles - Come share your thoughts here!</h1>
 		
 		<div class = "user-function">
 			<%
@@ -107,11 +107,10 @@
 	                
 	                %>
 	                <div class = "recent-posts">
-	                	<b>${fn:escapeXml(post_title)}</b>
-	                	<br>
+	                	<div class = "post-title"><b>${fn:escapeXml(post_title)}</b></div>
 		                <p> By: <b>${fn:escapeXml(post_user.nickname)}</b> </p>
 		                <p> Posted on: <b>${fn:escapeXml(post_date)}</b> </p>
-			            <blockquote>${fn:escapeXml(post_content)}</blockquote>
+			            <textarea id = "post-text">${fn:escapeXml(post_content)}</textarea>
 			            <br>
 		            </div>
 		            <%
@@ -119,7 +118,7 @@
 		        }
 		    }
 		%> 
-		<div class = "all-posts">
+			<div class = "all-posts">
 				<a href="allposts.jsp"><button class="button"> List All Blog Posts</button></a>
 		    </div>
 		
@@ -140,10 +139,12 @@
 		    	<form action="/sign" method="post" id="textbox">
 				      <input type="hidden" name="guestbookName" value="${fn:escapeXml(guestbookName)}"/>
 			    </form>
-			    
-				<form action="newpost.jsp">
-	    			<input type="submit" value="Create New Post" />
-				</form>
+			     
+				<div class = "new-post">
+					<a href="newpost.jsp"><button class="button"> Create New Post </button></a>
+		    	</div>
+						
+				
 		    </div>
 		<% 
 			} 

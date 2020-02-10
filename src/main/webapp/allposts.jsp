@@ -37,7 +37,7 @@
   <body>
  	<div class = "blog-bar">
  		<img src="ThoughtBubble.png" id = "logo-image" >
-		<h1 id = "logo-text">ThoughtBubbles - Come share your thoughts here!</h1>
+		<h1 id = "logo-text">ThoughtBubbles - Look at all these thoughts!</h1>
 		
 		<div class = "user-function">
 			<%
@@ -106,11 +106,10 @@
 	                
 	                %>
 	                <div class = "recent-posts">
-	                	<b>${fn:escapeXml(post_title)}</b>
-	                	<br>
+	                	<div class = "post-title"><b>${fn:escapeXml(post_title)}</b></div>
 		                <p> By: <b>${fn:escapeXml(post_user.nickname)}</b> </p>
 		                <p> Posted on: <b>${fn:escapeXml(post_date)}</b> </p>
-			            <blockquote>${fn:escapeXml(post_content)}</blockquote>
+			            <textarea id = "post-text">${fn:escapeXml(post_content)}</textarea>
 			            <br>
 		            </div>
 		            <%
