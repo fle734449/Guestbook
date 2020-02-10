@@ -110,6 +110,14 @@ textarea{
 	padding-bottom: 10px;
 }
 
+.sub{
+	z-index: 5;
+	position: relative; 
+	top: -40px;
+	margin: 10 auto;
+	padding-bottom: 10px;
+}
+
 .submit-posts {
 	z-index: 5;
 	position: relative; 

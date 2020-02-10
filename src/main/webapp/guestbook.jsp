@@ -123,6 +123,7 @@
 		    </div>
 		
 			
+			
 		<%
 		    if (user == null) {
 		
@@ -144,6 +145,11 @@
 					<a href="newpost.jsp"><button class="button"> Create New Post </button></a>
 		    	</div>
 						
+				<div class = "sub">
+				<form action="/subscribe" method="post">
+				      <input type="submit" name="Subscribe" value="Subscribe" class="button"/>
+			    </form>
+		    </div>
 				
 		    </div>
 		<% 

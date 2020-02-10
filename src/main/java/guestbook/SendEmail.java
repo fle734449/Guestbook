@@ -17,8 +17,7 @@ import com.google.appengine.api.users.UserServiceFactory;
 
 public class SendEmail extends HttpServlet {
 	private static final Logger _logger = Logger.getLogger(SendEmail.class.getName());
-	
-	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+	public void doGet(HttpServletRequest req, HttpServletResponse resp, Subscribe subscribers) throws IOException {
 		try {
 			_logger.info("Cron Job has been executed");
 			
