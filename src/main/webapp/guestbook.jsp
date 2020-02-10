@@ -121,9 +121,12 @@
 		%> 
 			<div class = "submit-posts">
 		    	<form action="/sign" method="post" id="textbox">
-				      <div><a href="newpost.jsp">Create New Post</a></div>
 				      <input type="hidden" name="guestbookName" value="${fn:escapeXml(guestbookName)}"/>
 			    </form>
+			    
+				<form action="newpost.jsp">
+	    			<input type="submit" value="Create New Post" />
+				</form>
 		    </div>
 		<%
 		    if (user == null) {
