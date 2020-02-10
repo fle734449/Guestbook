@@ -21,7 +21,7 @@ public class SignGuestbookServlet extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         UserService userService = UserServiceFactory.getUserService();
         User user = userService.getCurrentUser();
-
+        
         // We have one entity group per Guestbook with all Greetings residing
         // in the same entity group as the Guestbook to which they belong.
         // This lets us run a transactional ancestor query to retrieve all

@@ -148,6 +148,7 @@
 				<div class = "sub">
 				<form action="/subscribe" method="post">
 				      <input type="submit" name="Subscribe" value="Subscribe" class="button"/>
+				      <input type="hidden" name="guestbookName" value="${fn:escapeXml(guestbookName)}"/>
 			    </form>
 		    </div>
 				
