@@ -1,3 +1,7 @@
+@font-face {
+  font-family: Raleway;
+  src: url(Raleway-Medium.ttf);
+}
 
 body {
    background-color: #9fa2b2;
@@ -22,23 +26,30 @@ body {
 	top: 50px;
 }
 
+#logo-image {
+	display: block;
+	float:left;
+	padding: 14px;
+	padding-right: 8px;
+	padding-top: 16px;
+	max-width: 5%;
+	max-height: 5%;
+	
+}
+
 #logo-text {
+	font-family: Raleway;
 	display:block;
 	float:left;
 	font-size: 16px;
 	text-align: center;
 	padding: 10px;
+	padding-left: 5px;
 
-}
-
-#slogan {
-	display: block;
-	float:left;
-	font-size: 10px;
-	text-align: center;
-	padding: 14px;
 }
 
 .user-function {
+	font-family: Raleway;
 	float: right; 
+	padding-right: 50px;
 }

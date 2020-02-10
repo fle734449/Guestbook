@@ -36,8 +36,8 @@
   
   <body>
  	<div class = "blog-bar">
-		<h1 id = "logo-text">ThoughtBubbles</h1>
-		<p id = "slogan">Share your thoughts here!</p>
+ 		<img src="ThoughtBubble.png" id = "logo-image" >
+		<h1 id = "logo-text">ThoughtBubbles - Come share your thoughts here!</h1>
 		
 		<div class = "user-function">
 			<%
@@ -141,8 +141,6 @@
 		<% 
 			} 
 		%>		
-
-	
 
 	
   </body>
