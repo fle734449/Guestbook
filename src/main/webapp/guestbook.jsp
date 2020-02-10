@@ -86,9 +86,9 @@
 		    // view of the Greetings belonging to the selected Guestbook.
 		
 			Query query = new Query("Greeting", guestbookKey).addSort("date", Query.SortDirection.DESCENDING);
-		    List<Entity> greetings = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(5));
+		    List<Entity> posts = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(5));
 		
-		    if (greetings.isEmpty()) {
+		    if (posts.isEmpty()) {
 		        %>
 		        <p>Guestbook '${fn:escapeXml(guestbookName)}' has no messages.</p>
 		        <%
@@ -99,14 +99,20 @@
 		        <p>Messages in Guestbook '${fn:escapeXml(guestbookName)}'.</p>
 		        <%
 		
-		        for (Entity greeting : greetings) {
-		            pageContext.setAttribute("greeting_content", greeting.getProperty("content"));      
-	                pageContext.setAttribute("greeting_user", greeting.getProperty("user"));
+		        for (Entity post : posts) {
+		        	pageContext.setAttribute("post_title", post.getProperty("title")); 
+		            pageContext.setAttribute("post_content", post.getProperty("content"));      
+	                pageContext.setAttribute("post_user", post.getProperty("user"));
+	                pageContext.setAttribute("post_date", post.getProperty("date"));
 	                
 	                %>
 	                <div class = "recent-posts">
-		                <p><b>${fn:escapeXml(greeting_user.nickname)}</b> wrote:</p>
-			            <blockquote>${fn:escapeXml(greeting_content)}</blockquote>
+	                	<b>${fn:escapeXml(post_title)}</b>
+	                	<br>
+		                <p> By: <b>${fn:escapeXml(post_user.nickname)}</b> </p>
+		                <p> Posted on: <b>${fn:escapeXml(post_date)}</b> </p>
+			            <blockquote>${fn:escapeXml(post_content)}</blockquote>
+			            <br>
 		            </div>
 		            <%
 		            
@@ -115,7 +121,8 @@
 		%> 
 			<div class = "submit-posts">
 		    	<form action="/sign" method="post" id="textbox">
-				    <div><textarea name="content" id = "textbox" rows="3" cols="60" ></textarea></div>
+		    		<div><textarea name="title" rows="1" cols="60" ></textarea></div>
+				    <div><textarea name="content" rows="3" cols="60" ></textarea></div>
 				      <div><input type="submit" value="Post Greeting" /></div>
 				      <input type="hidden" name="guestbookName" value="${fn:escapeXml(guestbookName)}"/>
 			    </form>
