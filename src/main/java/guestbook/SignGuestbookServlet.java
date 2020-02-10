@@ -14,7 +14,6 @@ import java.util.Date;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.googlecode.objectify.ObjectifyService;;
  
 
 public class SignGuestbookServlet extends HttpServlet {

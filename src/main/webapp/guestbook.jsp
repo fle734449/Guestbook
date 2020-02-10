@@ -121,9 +121,8 @@
 		%> 
 			<div class = "submit-posts">
 		    	<form action="/sign" method="post" id="textbox">
-		    		<div><textarea name="title" rows="1" cols="60" ></textarea></div>
-				    <div><textarea name="content" rows="3" cols="60" ></textarea></div>
-				      <div><input type="submit" value="Post Greeting" /></div>
+		 
+				      <div><a href="newpost.jsp">Create New Post</a></div>
 				      <input type="hidden" name="guestbookName" value="${fn:escapeXml(guestbookName)}"/>
 			    </form>
 		    </div>
