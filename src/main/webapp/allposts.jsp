@@ -86,8 +86,7 @@
 		    // view of the Greetings belonging to the selected Guestbook.
 		
 			Query query = new Query("Greeting", guestbookKey).addSort("date", Query.SortDirection.DESCENDING);
-		    List<Entity> posts = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(5));
-		
+			List<Entity> posts = datastore.prepare(query).asList(FetchOptions.Builder.withDefaults());
 		    if (posts.isEmpty()) {
 		        %>
 		        <p>Guestbook '${fn:escapeXml(guestbookName)}' has no messages.</p>
@@ -119,34 +118,9 @@
 		        }
 		    }
 		%> 
-		<div class = "all-posts">
-				<a href="allposts.jsp"><button class="button"> List All Blog Posts</button></a>
-		    </div>
-		
+		<div class = "return-home">
+				<a href="guestbook.jsp"><button class="button"> Return to Homepage</button></a>	
+		</div>
 			
-		<%
-		    if (user == null) {
-		
-		%>
-			<script type="text/javascript"> 
-		 		document.getElementById("textbox").style.display = "none";
-			</script>
-		<% } else { %> 
-			<script type="text/javascript"> 
-		 		document.getElementById("textbox").style.display = "block";
-			</script>
-			
-			<div class = "submit-posts">
-		    	<form action="/sign" method="post" id="textbox">
-				      <input type="hidden" name="guestbookName" value="${fn:escapeXml(guestbookName)}"/>
-			    </form>
-			    
-				<form action="newpost.jsp">
-	    			<input type="submit" value="Create New Post" />
-				</form>
-		    </div>
-		<% 
-			} 
-		%>		
   </body>
 </html>
