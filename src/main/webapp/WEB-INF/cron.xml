@@ -3,8 +3,9 @@
   <cron>
     <url>/subscribe</url>
     <description>Email all subscribers any blogs posted in the last 24 hours at 5 pm</description>
-    <schedule>every 2 minutes</schedule>
+    <schedule>every day 17:00</schedule>
     <timezone>America/Chicago</timezone>
   </cron>
 </cronentries>
 <!-- every day 17:00 -->
+<!-- every 2 minutes -->

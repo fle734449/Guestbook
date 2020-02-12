@@ -1,11 +1,14 @@
 package guestbook;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
+import java.util.TimeZone;
 import java.util.logging.Logger;
 
 import javax.mail.*;
@@ -48,19 +51,18 @@ public class Subscribe extends HttpServlet {
 	public List<String> getSubscribers() {
 		return subscribers;
 	}
-	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		
-		UserService userService = UserServiceFactory.getUserService();
-        User user = userService.getCurrentUser();    
-		String email = user.getEmail();
-	        if(email != null) {
-	        	if(!(subscribers.contains(email))) {
-	        		subscribers.add(email);
-	        	}
-	        }
+	
+	@SuppressWarnings("serial")
+	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		_logger.info("Cron Job executed!");
+
 	        String guestbookName = req.getParameter("guestbookName");
-	        Key guestbookKey = KeyFactory.createKey("Guestbook", guestbookName);
+	        if(guestbookName == null) {
+	        	guestbookName = "default";
+	        }
+	       
 	        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+	        Key guestbookKey = KeyFactory.createKey("Guestbook", guestbookName);
 		    
 	        Query query = new Query("Greeting", guestbookKey).addSort("date", Query.SortDirection.DESCENDING);
 			List<Entity> posts = datastore.prepare(query).asList(FetchOptions.Builder.withDefaults());
@@ -68,10 +70,13 @@ public class Subscribe extends HttpServlet {
 			Collections.reverse(posts);
 			
 			String blogPosts = "";
+			DateFormat dateFormat = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z");
+			dateFormat.setTimeZone(TimeZone.getTimeZone("America/Chicago"));
 			
 			for(Entity post: posts) {
 				if(inLastDay((Date) post.getProperty("date"))) {
-					blogPosts +=  post.getProperty("title") + "\nBy:" + post.getProperty("user") + "\nPosted on:" + post.getProperty("date") + "\n" + post.getProperty("content")  + "\n" + "\n";
+					String d = dateFormat.format(post.getProperty("date"));
+					blogPosts +=  post.getProperty("title") + "\nBy: " + post.getProperty("user") + "\nPosted on: " + d + "\n" + post.getProperty("content")  + "\n" + "\n";
 				}
 			}
 			try {
@@ -88,14 +93,29 @@ public class Subscribe extends HttpServlet {
 					    Transport.send(msg);
 					}
 				}
+				
 			} catch (Exception e) {
 				
 	        
 			}
-			resp.sendRedirect("/guestbook.jsp");
+			
 			
 	
 		}
+	@Override
+	public void doPost(HttpServletRequest req, HttpServletResponse resp)
+	throws ServletException, IOException {
+		UserService userService = UserServiceFactory.getUserService();
+        User user = userService.getCurrentUser();
+		String email = user.getEmail();
+	        if(email != null) {
+	        	if(!(subscribers.contains(email))) {
+	        		subscribers.add(email);
+	        	}
+	        }
+	        resp.sendRedirect("/guestbook.jsp");
+	}
+	
 	public final static long MILLIS_PER_DAY = 24 * 60 * 60 * 1000;
 	public boolean inLastDay(Date date) {
 		return date.getTime() > System.currentTimeMillis() - MILLIS_PER_DAY;

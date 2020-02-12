@@ -23,7 +23,10 @@
 <%@ page import="com.google.appengine.api.datastore.KeyFactory" %>
 
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
+<%@ page import="java.text.DateFormat" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.TimeZone" %>
+<%@ page import="java.util.Date" %>
   
 
 <html>
@@ -98,12 +101,14 @@
 		        %>
 		        <p>Messages in Guestbook '${fn:escapeXml(guestbookName)}'.</p>
 		        <%
-		
+		        DateFormat dateFormat = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z");
+				dateFormat.setTimeZone(TimeZone.getTimeZone("America/Chicago"));
 		        for (Entity post : posts) {
+		        	String d = dateFormat.format(post.getProperty("date"));
 		        	pageContext.setAttribute("post_title", post.getProperty("title")); 
 		            pageContext.setAttribute("post_content", post.getProperty("content"));      
 	                pageContext.setAttribute("post_user", post.getProperty("user"));
-	                pageContext.setAttribute("post_date", post.getProperty("date"));
+	                pageContext.setAttribute("post_date", d);
 	                
 	                %>
 	                <div class = "recent-posts">
