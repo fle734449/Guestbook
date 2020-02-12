@@ -29,7 +29,7 @@
 	
 	<servlet>
 		<servlet-name>subscribe</servlet-name>
-		<servlet-class>guestbook.Subscribe</servlet-class>
+		<servlet-class>guestbook.SubscribeServlet</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
@@ -37,6 +37,22 @@
 		<url-pattern>/subscribe</url-pattern>
 	</servlet-mapping>
 
+ <filter>
+
+        <filter-name>ObjectifyFilter</filter-name>
+
+        <filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>
+
+  </filter>
+
+  <filter-mapping>
+
+        <filter-name>ObjectifyFilter</filter-name>
+
+        <url-pattern>/*</url-pattern>
+
+  </filter-mapping>
+  
   <welcome-file-list>
     <welcome-file>guestbook.jsp</welcome-file>
   </welcome-file-list>
