@@ -99,8 +99,19 @@ textarea{
 	position: relative; 
 	top: 50px;
 	margin: 20 auto;
+	padding-top: 10px;
+	padding-bottom: -40px;
+}
+
+.cancel-post {
+	z-index: 5;
+	position: relative; 
+	top: 50px;
+	margin: 20 auto;
+	padding-top: 15px;
 	padding-bottom: 10px;
 }
+
 
 .new-post{
 	z-index: 5;
@@ -115,7 +126,8 @@ textarea{
 	position: relative; 
 	top: -40px;
 	margin: 10 auto;
-	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-bottom: -50px;
 }
 
 .submit-posts {
@@ -129,7 +141,7 @@ textarea{
 .return-home {
 	z-index: 5;
 	position: relative; 
-	top: 50px;
+	top: 40px;
 	margin: 50 auto;
 	padding-bottom: 10px;
 }
