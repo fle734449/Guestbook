@@ -153,9 +153,15 @@
 				<div class = "sub">
 				<form action="/subscribe" method="post">
 				      <input type="submit" name="Subscribe" value="Subscribe" class="button"/>
-				      <input type="hidden" name="guestbookName" value="${fn:escapeXml(guestbookName)}"/>
+				      <input type="hidden" name="subStatus" value="sub"/>
 			    </form>
-		    </div>
+		    	</div>
+		    	<div class = "unsub">
+				<form action="/subscribe" method="post">
+				      <input type="submit" name="Unsubscribe" value="Unsubscribe" class="button"/>
+				      <input type="hidden" name="subStatus" value="unsub"/>
+			    </form>
+		    	</div>
 				
 		    </div>
 		<% 
