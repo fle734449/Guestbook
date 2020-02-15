@@ -106,9 +106,8 @@ textarea{
 .cancel-post {
 	z-index: 5;
 	position: relative; 
-	top: 50px;
-	margin: 20 auto;
-	padding-top: 15px;
+	top: 120px;
+	margin: 10 auto;
 	padding-bottom: 10px;
 }
 
