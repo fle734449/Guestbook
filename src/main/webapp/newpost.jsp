@@ -22,6 +22,7 @@
 
 <%@ page import="com.google.appengine.api.datastore.KeyFactory" %>
 
+
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
   
@@ -35,6 +36,7 @@
   
   
   <body>
+ 
  	<div class = "blog-bar">
  		<img src="ThoughtBubble.png" id = "logo-image" >
 		<h1 id = "logo-text">ThoughtBubbles - Creating new thoughts...</h1>
@@ -78,7 +80,7 @@
 		    	<form action="/sign" method="post" id="textbox">
 		    		<div><textarea id = "title-textarea"name="title" rows="1" cols="50" >Title of Thought...</textarea></div>
 				    <div><textarea id = "content-textarea" name="content" rows="10" cols="100" >Think away!</textarea></div>
-				      <div><input type="submit" value="Submit Post" /></div>
+				      <div><input type="submit" class = "button" value="Submit Post" /></div>
 				      <input type="hidden" name="guestbookName" value="${fn:escapeXml(guestbookName)}"/>
 			    </form>
 		    </div>
@@ -96,7 +98,11 @@
 		<% 
 			} 
 		%>		
-
+		<div class = "cancel-post">
+					<a href="guestbook.jsp"><button class="button"> Cancel </button></a>
+		    	</div>
+		    	
+	
 	
   </body>
 </html>
