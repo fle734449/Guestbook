@@ -31,13 +31,7 @@
 
   <head>
  
- 	<style>
- 		body {
-		  font-family: Raleway;
-		  background: linear-gradient(0deg, rgba(159,162,178,1) 0%, rgba(22,38,46,1) 100%);
-		  color: white;
- 		}
- 	</style>
+
   </head>
   
   
