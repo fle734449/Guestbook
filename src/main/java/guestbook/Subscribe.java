@@ -93,7 +93,7 @@ public class Subscribe extends HttpServlet {
 						Properties p = new Properties();
 					    Session session = Session.getDefaultInstance(p, null);
 					    MimeMessage msg = new MimeMessage(session);
-					    msg.setFrom(new InternetAddress("fle734449@gmail.com"));
+					    msg.setFrom(new InternetAddress("thoughtbubbles@thoughtbubbles-blog.appspotmail.com"));
 					    msg.addRecipient(Message.RecipientType.TO,new InternetAddress(email));
 					    msg.setSubject("You have subscribed to ThoughtBubbles");
 					    msg.setText("Dear Subscriber, \nHere are the blog posts made in the last 24 hours:\n\n" + blogPosts);
