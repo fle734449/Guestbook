@@ -129,8 +129,13 @@
 				<a href="allposts.jsp"><button class="button"> List All Blog Posts</button></a>
 		    </div>
 		
-			
-			
+			<div class = "filter-posts">
+			<form action="allposts.jsp" method="post">
+			<br>
+	      		<div><input type="submit" value="Search For Blogs with Title:" class="button"/>
+	      		<textarea name="filteredSearchTerm" rows="1" cols="10"></textarea></div>
+ 			</form>
+			</div>
 		<%
 		    if (user == null) {
 		

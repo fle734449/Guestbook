@@ -103,6 +103,15 @@ textarea{
 	padding-bottom: -40px;
 }
 
+.filter-posts {
+	z-index: 5;
+	position: relative; 
+	top: 50px;
+	margin: 20 auto;
+	padding-top: 10px;
+	padding-bottom: -40px;
+}
+
 .cancel-post {
 	z-index: 5;
 	position: relative; 

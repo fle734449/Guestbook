@@ -24,7 +24,15 @@
 
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
+<%@ page import="java.text.DateFormat" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.TimeZone" %>
+<%@ page import="java.util.Date" %>
   
+
+<%
+	String filteredTitle = request.getParameter("filteredSearchTerm");
+%>
 
 <html>
 <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
@@ -88,35 +96,64 @@
 		
 			Query query = new Query("Greeting", guestbookKey).addSort("date", Query.SortDirection.DESCENDING);
 			List<Entity> posts = datastore.prepare(query).asList(FetchOptions.Builder.withDefaults());
-		    if (posts.isEmpty()) {
-		        %>
-		        <p>Guestbook '${fn:escapeXml(guestbookName)}' has no messages.</p>
-		        <%
+			if(filteredTitle == null){
+		   		if (posts.isEmpty()) {
+		        	%>
+		        	<p>Guestbook '${fn:escapeXml(guestbookName)}' has no messages.</p>
+		        	<%
 		
-		    } else {
+		    	} else {
 		    	
-		        %>
-		        <p>Messages in Guestbook '${fn:escapeXml(guestbookName)}'.</p>
-		        <%
-		
-		        for (Entity post : posts) {
-		        	pageContext.setAttribute("post_title", post.getProperty("title")); 
-		            pageContext.setAttribute("post_content", post.getProperty("content"));      
-	                pageContext.setAttribute("post_user", post.getProperty("user"));
-	                pageContext.setAttribute("post_date", post.getProperty("date"));
+		        	%>
+		        	<p>All Posts Ever.</p>
+		        	<%
+		        	DateFormat dateFormat = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z");
+					dateFormat.setTimeZone(TimeZone.getTimeZone("America/Chicago"));
+		        	for (Entity post : posts) {
+		        		String d = dateFormat.format(post.getProperty("date"));
+			        	pageContext.setAttribute("post_title", post.getProperty("title")); 
+			            pageContext.setAttribute("post_content", post.getProperty("content"));      
+		                pageContext.setAttribute("post_user", post.getProperty("user"));
+		                pageContext.setAttribute("post_date", d);
 	                
-	                %>
-	                <div class = "recent-posts">
-	                	<div class = "post-title"><b>${fn:escapeXml(post_title)}</b></div>
-		                <p> By: <b>${fn:escapeXml(post_user.nickname)}</b> </p>
-		                <p> Posted on: <b>${fn:escapeXml(post_date)}</b> </p>
-			            <textarea id = "post-text">${fn:escapeXml(post_content)}</textarea>
-			            <br>
-		            </div>
-		            <%
+	                	%>
+	                	<div class = "recent-posts">
+	                		<div class = "post-title"><b>${fn:escapeXml(post_title)}</b></div>
+		                	<p> By: <b>${fn:escapeXml(post_user.nickname)}</b> </p>
+		                	<p> Posted on: <b>${fn:escapeXml(post_date)}</b> </p>
+			            	<textarea id = "post-text">${fn:escapeXml(post_content)}</textarea>
+			            	<br>
+		            	</div>
+		            	<%
 		            
-		        }
-		    }
+		        	}
+		    	}
+			} else {
+				%>
+	        	<p>Filtered Posts with Title.</p>
+	        	<%
+	        	DateFormat dateFormat = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z");
+				dateFormat.setTimeZone(TimeZone.getTimeZone("America/Chicago"));
+	        	for (Entity post : posts) {
+	        		if(post.getProperty("title").equals(filteredTitle)) {
+	        			String d = dateFormat.format(post.getProperty("date"));
+			        	pageContext.setAttribute("post_title", post.getProperty("title")); 
+			            pageContext.setAttribute("post_content", post.getProperty("content"));      
+		                pageContext.setAttribute("post_user", post.getProperty("user"));
+		                pageContext.setAttribute("post_date", d);
+                
+                		%>
+                		<div class = "recent-posts">
+                			<div class = "post-title"><b>${fn:escapeXml(post_title)}</b></div>
+	                		<p> By: <b>${fn:escapeXml(post_user.nickname)}</b> </p>
+	                		<p> Posted on: <b>${fn:escapeXml(post_date)}</b> </p>
+		            		<textarea id = "post-text">${fn:escapeXml(post_content)}</textarea>
+		            		<br>
+	            		</div>
+	            	<%
+	        		}
+				}
+			}
 		%> 
 		<div class = "return-home">
 				<a href="guestbook.jsp"><button class="button"> Return to Homepage</button></a>	
