@@ -6,6 +6,7 @@ import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 
+//Reused code from tutorial 2
 public class GuestbookServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 		throws IOException {

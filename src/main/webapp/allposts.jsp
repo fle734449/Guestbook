@@ -29,11 +29,11 @@
 <%@ page import="java.util.TimeZone" %>
 <%@ page import="java.util.Date" %>
   
-
+<!-- Frank Driving Now -->
 <%
 	String filteredTitle = request.getParameter("filteredSearchTerm");
 %>
-
+<!-- End of Frank Driving, Daniel Driving Now -->
 <html>
 <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
 
@@ -84,7 +84,7 @@
 		
 	</div>
 
-	
+<!-- End of Daniel Driving, Frank Driving Now -->	
 
 		<%
 		    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
@@ -158,6 +158,6 @@
 		<div class = "return-home">
 				<a href="guestbook.jsp"><button class="button"> Return to Homepage</button></a>	
 		</div>
-			
+<!-- End of Frank Driving -->			
   </body>
 </html>

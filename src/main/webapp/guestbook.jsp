@@ -28,7 +28,7 @@
 <%@ page import="java.util.TimeZone" %>
 <%@ page import="java.util.Date" %>
   
-
+<!-- Reused code from tutorial 2 -->
 <html>
 <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
 
@@ -39,7 +39,7 @@
   
   <body>
   
-  	
+  <!-- Daniel Driving Now -->	
  	<div class = "blog-bar">
  		<img src="ThoughtBubble.png" id = "logo-image" >
 		<h1 id = "logo-text"> ThoughtBubbles - Come share your thoughts here!</h1>
@@ -128,7 +128,7 @@
 			<div class = "all-posts">
 				<a href="allposts.jsp"><button class="button"> List All Blog Posts</button></a>
 		    </div>
-		
+<!-- End of Daniel Driving, Frank Driving Now -->		
 			<div class = "filter-posts">
 			<form action="allposts.jsp" method="post">
 	
@@ -173,6 +173,7 @@
 		    </div>
 		<% 
 			} 
-		%>		
+		%>	
+<!-- End of Frank Driving -->	
   </body>
 </html>

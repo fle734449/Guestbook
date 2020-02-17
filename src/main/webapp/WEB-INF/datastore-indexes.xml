@@ -3,7 +3,9 @@
      <datastore-index kind="Greeting" ancestor="true" source="manual">
         <property name="date" direction="desc" />
     </datastore-index>
+    <!-- Frank Driving Now -->
     <datastore-index kind="List" ancestor="true" source="manual">
         <property name="email" direction="desc" />
     </datastore-index>
+    <!-- End of Frank Driving -->
 </datastore-indexes>

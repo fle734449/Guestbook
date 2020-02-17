@@ -26,7 +26,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
   
-
+<!-- Daniel Driving Now -->
 <html>
 <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
 
@@ -101,7 +101,7 @@
 		<div class = "cancel-post">
 					<a href="guestbook.jsp"><button class="button"> Cancel </button></a>
 		    	</div>
-		    	
+<!-- End of Daniel Driving -->	    	
 	
 	
   </body>
