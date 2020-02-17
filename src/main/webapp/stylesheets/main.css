@@ -85,7 +85,7 @@ textarea{
 .recent-posts {
 	z-index: 0;
 	position: relative; 
-	top: 65px;
+	top: 100px;
   	padding: 15px;
   	margin: 20 auto;
   	border-radius: 10px;
@@ -97,25 +97,35 @@ textarea{
 .all-posts {
 	z-index: 5;
 	position: relative; 
-	top: 50px;
+	top: 90px;
 	margin: 20 auto;
-	padding-top: 10px;
+	padding-top: 30px;
 	padding-bottom: -40px;
 }
 
 .filter-posts {
 	z-index: 5;
 	position: relative; 
-	top: 50px;
+	top: 70px;
 	margin: 20 auto;
-	padding-top: 10px;
-	padding-bottom: -40px;
+	padding-top: 25px;
+}
+
+.search {
+	background-color: #3c7a89;
+ 	font-family: Raleway;
+ 	color: white;
+ 	display: inline-block;
+ 	border: none;
+ 	width: 250px;
+ 	display: inline-block;
+ 	font-size: 20px;
 }
 
 .cancel-post {
 	z-index: 5;
 	position: relative; 
-	top: 120px;
+	top: 85px;
 	margin: 10 auto;
 	padding-bottom: 10px;
 }
@@ -124,8 +134,9 @@ textarea{
 .new-post{
 	z-index: 5;
 	position: relative; 
-	top: -40px;
+	top: -35px;
 	margin: 10 auto;
+	padding-top: 0px;
 	padding-bottom: 10px;
 }
 
@@ -143,13 +154,14 @@ textarea{
 	position: relative; 
 	top: -40px;
 	margin: 10 auto;
+	padding-top: 10px;
 	padding-bottom: 10px;
 }
 
 .submit-posts {
 	z-index: 5;
 	position: relative; 
-	top: 100px;
+	top: 110px;
 	margin: 10 auto;
 	padding-bottom: 10px;
 }
@@ -189,5 +201,5 @@ textarea{
 	font-family: Raleway;
 	float: right; 
 	padding-top: 12px;
-	padding-right: 80px;
+	padding-right: 150px;
 }

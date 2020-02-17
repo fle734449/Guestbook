@@ -70,7 +70,7 @@
 			
 			
 			<p>
-				<a href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
+				<a href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a> to create new post.
 			</p>
 			
 			<%
@@ -131,9 +131,9 @@
 		
 			<div class = "filter-posts">
 			<form action="allposts.jsp" method="post">
-			<br>
+	
 	      		<div><input type="submit" value="Search For Blogs with Title:" class="button"/>
-	      		<textarea name="filteredSearchTerm" rows="1" cols="10"></textarea></div>
+	      		<textarea name="filteredSearchTerm" rows="1" cols="10" class = "search"></textarea></div>
  			</form>
 			</div>
 		<%

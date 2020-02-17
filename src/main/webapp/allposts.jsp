@@ -74,7 +74,7 @@
 			
 			
 			<p>
-				<a href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
+				<a href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a> to create new post.
 			</p>
 			
 			<%
