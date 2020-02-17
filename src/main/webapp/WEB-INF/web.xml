@@ -16,7 +16,7 @@
 		<url-pattern>/sign</url-pattern>
 	</servlet-mapping>
 	
-	
+	<!-- Frank Driving Now -->	
 	<servlet>
 		<servlet-name>sendEmail</servlet-name>
 		<servlet-class>guestbook.SendEmail</servlet-class>
@@ -36,7 +36,7 @@
 		<servlet-name>subscribe</servlet-name>
 		<url-pattern>/subscribe</url-pattern>
 	</servlet-mapping>
-
+	<!-- End of Frank Driving -->
   <welcome-file-list>
     <welcome-file>guestbook.jsp</welcome-file>
   </welcome-file-list>
