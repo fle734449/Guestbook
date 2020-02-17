@@ -55,7 +55,6 @@ public class Subscribe extends HttpServlet {
 	private static final Logger _logger = Logger.getLogger(Subscribe.class.getName());
 	@SuppressWarnings("serial")
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		//Frank Driving Now
 		_logger.info("Cron Job executed!");
 
 	        String guestbookName = req.getParameter("guestbookName");
@@ -149,12 +148,10 @@ public class Subscribe extends HttpServlet {
 	        }
 	    */
 	    resp.sendRedirect("/guestbook.jsp");
-	    
 	}
 	
 	public final static long MILLIS_PER_DAY = 24 * 60 * 60 * 1000;
 	public boolean inLastDay(Date date) {
 		return date.getTime() > System.currentTimeMillis() - MILLIS_PER_DAY;
 	}
-	//End of Frank Driving
 }

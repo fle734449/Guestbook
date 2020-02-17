@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
  
- // Code taken reused from tutorial 2
+
 public class SignGuestbookServlet extends HttpServlet {
 
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {

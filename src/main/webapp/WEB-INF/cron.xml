@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cronentries>
   <cron>
-  <!-- Frank Driving Now -->
     <url>/subscribe</url>
     <description>Email all subscribers any blogs posted in the last 24 hours at 5 pm</description>
     <schedule>every day 17:00</schedule>
@@ -10,4 +9,3 @@
 </cronentries>
 <!-- every day 17:00 -->
 <!-- every 2 minutes -->
-<!-- End of Frank Driving -->
