@@ -114,18 +114,19 @@ textarea{
 .search {
 	background-color: #3c7a89;
  	font-family: Raleway;
+ 	position: relative;
  	color: white;
+ 	top: 15px;
  	display: inline-block;
  	border: none;
  	width: 250px;
- 	display: inline-block;
  	font-size: 20px;
 }
 
 .cancel-post {
 	z-index: 5;
 	position: relative; 
-	top: 85px;
+	top: 105px;
 	margin: 10 auto;
 	padding-bottom: 10px;
 }
@@ -134,7 +135,7 @@ textarea{
 .new-post{
 	z-index: 5;
 	position: relative; 
-	top: -35px;
+	top: -55px;
 	margin: 10 auto;
 	padding-top: 0px;
 	padding-bottom: 10px;
@@ -143,7 +144,7 @@ textarea{
 .sub{
 	z-index: 5;
 	position: relative; 
-	top: -40px;
+	top: -60px;
 	margin: 10 auto;
 	padding-top: 10px;
 	padding-bottom: -50px;
@@ -152,7 +153,7 @@ textarea{
 .unsub{
 	z-index: 5;
 	position: relative; 
-	top: -40px;
+	top: -60px;
 	margin: 10 auto;
 	padding-top: 10px;
 	padding-bottom: 10px;
@@ -161,7 +162,7 @@ textarea{
 .submit-posts {
 	z-index: 5;
 	position: relative; 
-	top: 110px;
+	top: 130px;
 	margin: 10 auto;
 	padding-bottom: 10px;
 }
