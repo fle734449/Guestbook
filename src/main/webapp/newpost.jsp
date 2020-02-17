@@ -43,6 +43,7 @@
 		
 		<div class = "user-function">
 			<%
+				//Daniel Driving Now
 			    String guestbookName = request.getParameter("guestbookName");
 			
 			    if (guestbookName == null) {
@@ -71,7 +72,7 @@
 			</p>
 			
 			<%
-			    }
+			    } //End of Daniel Driving
 			%>
 		</div>
 		

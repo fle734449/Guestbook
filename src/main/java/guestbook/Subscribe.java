@@ -52,6 +52,7 @@ public class Subscribe extends HttpServlet {
 		return subscribers;
 	}
 	*/
+	//Frank Driving Now
 	private static final Logger _logger = Logger.getLogger(Subscribe.class.getName());
 	@SuppressWarnings("serial")
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -155,3 +156,4 @@ public class Subscribe extends HttpServlet {
 		return date.getTime() > System.currentTimeMillis() - MILLIS_PER_DAY;
 	}
 }
+//End of Frank Driving

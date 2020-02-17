@@ -45,7 +45,7 @@
 		<h1 id = "logo-text"> ThoughtBubbles - Come share your thoughts here!</h1>
 		
 		<div class = "user-function">
-			<%
+			<%	//Reused Code from tutorial 2
 			    String guestbookName = request.getParameter("guestbookName");
 			
 			    if (guestbookName == null) {
@@ -103,6 +103,7 @@
 		        %>
 		        <p>Messages in Guestbook '${fn:escapeXml(guestbookName)}'.</p>
 		        <%
+		        //Frank Driving Now
 		        DateFormat dateFormat = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z");
 				dateFormat.setTimeZone(TimeZone.getTimeZone("America/Chicago"));
 		        for (Entity post : posts) {
@@ -172,7 +173,7 @@
 				
 		    </div>
 		<% 
-			} 
+			} //End of Frank Driving
 		%>		
   </body>
 </html>

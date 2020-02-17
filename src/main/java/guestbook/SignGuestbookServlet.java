@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
  
+//Reused code from tutorial 2
 
 public class SignGuestbookServlet extends HttpServlet {
 

@@ -132,6 +132,7 @@
 				%>
 	        	<p>Filtered Posts with Title.</p>
 	        	<%
+	        	//Frank Driving Now
 	        	DateFormat dateFormat = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z");
 				dateFormat.setTimeZone(TimeZone.getTimeZone("America/Chicago"));
 	        	for (Entity post : posts) {
@@ -153,7 +154,7 @@
 	            	<%
 	        		}
 				}
-			}
+			} //End of Frank driving
 		%> 
 		<div class = "return-home">
 				<a href="guestbook.jsp"><button class="button"> Return to Homepage</button></a>	
